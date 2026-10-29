@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Tag Forge — invisible tags for a brand-new site</title>
+  <meta name="description" content="Offline single-page tool that writes the title, description, social card and favicon tags a new site needs, with live search-snippet previews. Runs from file://, no network, no accounts.">
+  <meta name="theme-color" content="#7a4f9e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%237a4f9e'/%3E%3Ctext x='50' y='66' font-size='52' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='white'%3E%26lt;%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1><span class="glow">&lt;/&gt;</span> Meta Tag Forge</h1>
+      <p class="tagline">Forge the invisible tags a brand-new site needs — search snippets, social cards, favicons, robots — and copy the HTML straight into your <code>&lt;head&gt;</code>.</p>
+      <p class="badges">
+        <span class="badge">100% offline</span>
+        <span class="badge">runs from file://</span>
+        <span class="badge">zero dependencies</span>
+        <span class="badge">no accounts</span>
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <section class="panel" aria-labelledby="form-heading">
+        <h2 id="form-heading">Tell it about your page</h2>
+
+        <div class="field">
+          <label for="in-site">Site name</label>
+          <input id="in-site" type="text" placeholder="Dylan's AI Handbook" value="Dylan's AI Handbook" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="in-title">Page title <span class="count" id="count-title">15/60</span></label>
+          <input id="in-title" type="text" placeholder="The page name Google will show" value="AI in Plain English" autocomplete="off">
+          <p class="hint">Aim for under 60 characters. Google clips the rest.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-desc">Description <span class="count" id="count-desc">27/160</span></label>
+          <textarea id="in-desc" rows="3" placeholder="One friendly sentence on what this page is about">A nurse-turned-AI-author explains AI like a friend would — plain English, step by step.</textarea>
+          <p class="hint">Aim for 140–160 characters. This becomes the snippet text under the title.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-url">Canonical page URL</label>
+          <input id="in-url" type="text" placeholder="https://example.com/guides/first-post" value="https://example.com/guides/ai-in-plain-english" autocomplete="off" spellcheck="false">
+          <p class="hint">The one address this page should be known by, http<strong>s</strong> included.</p>
+        </div>
+
+        <div class="field">
+          <label for="in-theme">Theme color (mobile browser chrome)</label>
+          <span class="color-row">
+            <input id="theme-picker" type="color" value="#7a4f9e" aria-label="Pick a theme color">
+            <input id="in-theme" type="text" value="#7a4f9e" spellcheck="false" autocomplete="off" aria-label="Theme color as text">
+          </span>
+        </div>
+
+        <h3>Social cards</h3>
+        <p class="hint">Open Graph is what Facebook, LinkedIn and Discord read. Twitter cards are the X.com twins of them.</p>
+        <div class="field">
+          <label for="in-og-image">Preview image URL (shared by OG + Twitter)</label>
+          <input id="in-og-image" type="text" placeholder="https://example.com/images/cover.jpg" value="https://example.com/images/plain-english-cover.jpg" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="field three-col">
+          <span>
+            <label for="in-og-w">Image width</label>
+            <input id="in-og-w" type="text" inputmode="numeric" value="1200" placeholder="1200">
+          </span>
+          <span>
+            <label for="in-og-h">Image height</label>
+            <input id="in-og-h" type="text" inputmode="numeric" value="630" placeholder="630">
+          </span>
+          <span>
+            <label for="in-card">Card style</label>
+            <select id="in-card">
+              <option value="summary_large_image" selected>Big image card</option>
+              <option value="summary">Small square card</option>
+            </select>
+          </span>
+        </div>
+        <div class="field">
+          <label for="in-og-alt">Image alt text (what it shows, for screen readers)</label>
+          <input id="in-og-alt" type="text" placeholder="Book cover with a duck and a typewriter" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="in-twitter">Twitter / X handle (optional)</label>
+          <input id="in-twitter" type="text" placeholder="@yourhandle" value="@dylanasdale" autocomplete="off" spellcheck="false">
+        </div>
+
+        <h3>Search engine doors <span class="mild">(robots)</span></h3>
+        <p class="hint">"Robots" tags tell search engines what they may do with the page. If everything is unlocked you usually skip the tag entirely.</p>
+        <div class="field three-col">
+          <span>
+            <label for="in-index">Indexing</label>
+            <select id="in-index">
+              <option value="index" selected>index — allowed</option>
+              <option value="noindex">noindex — keep out</option>
+            </select>
+          </span>
+          <span>
+            <label for="in-follow">Following links</label>
+            <select id="in-follow">
+              <option value="follow" selected>follow — allowed</option>
+              <option value="nofollow">nofollow — keep out</option>
+            </select>
+          </span>
+          <span>
+            <label for="in-og-type">Page type</label>
+            <select id="in-og-type">
+              <option value="website" selected>website</option>
+              <option value="article">article</option>
+            </select>
+          </span>
+        </div>
+        <div class="field extras">
+          <label><input type="checkbox" id="chk-archive"> noarchive — don't keep a cached copy on Google</label>
+          <label><input type="checkbox" id="chk-snippet"> nosnippet — don't show this page's text in search excerpts</label>
+          <label><input type="checkbox" id="chk-imageindex"> noimageindex — don't index this page's images in image search</label>
+        </div>
+        <p class="hint" id="robots-explain">Nothing to explain yet — the defaults mean "robots may index and follow," and the tag is left out.</p>
+
+        <h3>Head extras</h3>
+        <div class="field extras">
+          <label><input type="checkbox" id="chk-favicons" checked> Include favicon link tags (pairs with the icon forge below)</label>
+          <label><input type="checkbox" id="chk-manifest"> Include a web app manifest link (for install-to-homescreen)</label>
+        </div>
+      </section>
+
+      <section class="panel previews" aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Live previews</h2>
+
+        <h3>Google search result</h3>
+        <div class="serp" id="serp">
+          <div class="serp-top">
+            <span class="serp-fav" id="serp-favicon" aria-hidden="true">D</span>
+            <span class="serp-site">
+              <span id="serp-site">Dylan's AI Handbook</span>
+              <span class="serp-crumb" id="serp-crumb">example.com › guides › ai-in-plain-english</span>
+            </span>
+          </div>
+          <div class="serp-title" id="serp-title">AI in Plain English</div>
+          <div class="serp-desc" id="serp-desc">A nurse-turned-AI-author explains AI like a friend would — plain English, step by step.</div>
+        </div>
+
+        <h3>Open Graph card <span class="mild">(Facebook · LinkedIn · Discord)</span></h3>
+        <div class="share-card" id="og-card">
+          <div class="share-img" id="og-img"></div>
+          <div class="share-body">
+            <div class="share-domain" id="og-domain">example.com</div>
+            <div class="share-title" id="og-title">AI in Plain English</div>
+            <div class="share-desc" id="og-desc">A nurse-turned-AI-author explains AI like a friend would — plain English, step by step.</div>
+            <div class="share-footer"><span class="share-logo" aria-hidden="true">◈</span><span id="og-site">Dylan's AI Handbook</span></div>
+          </div>
+        </div>
+
+        <h3>Twitter / X card</h3>
+        <div class="tweet" id="tw-card">
+          <div class="tweet-avatar" id="tw-avatar" aria-hidden="true">D</div>
+          <div class="tweet-main">
+            <div class="tweet-name"><strong id="tw-name">Dylan's AI Handbook</strong><span id="tw-handle" class="mild">@dylanasdale</span></div>
+            <div class="tweet-msg" id="tw-msg">Plain-English AI guides — new post ↓</div>
+            <div class="x-card" id="x-card">
+              <div class="x-img" id="x-img"></div>
+              <div class="x-body">
+                <div class="x-title" id="x-title">AI in Plain English</div>
+                <div class="x-desc" id="x-desc">A nurse-turned-AI-author explains AI like a friend would — plain English, step by step.</div>
+                <div class="x-footer" id="x-domain">example.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="warn-heading">
+      <h2 id="warn-heading">Gentle nudges</h2>
+      <ul id="warnings" class="warnings"></ul>
+    </section>
+
+    <section class="panel" aria-labelledby="out-heading">
+      <h2 id="out-heading">Copy-paste <code>&lt;head&gt;</code> tags</h2>
+      <p class="hint">Paste inside your page's <code>&lt;head&gt;</code>, after the charset and viewport lines. Drop files or copy buttons wherever your template puts them.</p>
+      <div class="codebox-wrap">
+        <button id="btn-copy-head" class="copy-btn" type="button">Copy tags</button>
+        <pre class="codebox" id="out-head"></pre>
+      </div>
+
+      <h3>Copy-paste <code>robots.txt</code></h3>
+      <div class="field">
+        <label for="in-disallow">Paths to keep out (one per line)</label>
+        <textarea id="in-disallow" rows="2" spellcheck="false">/admin/</textarea>
+      </div>
+      <div class="field">
+        <label for="in-sitemap">Sitemap URL (optional)</label>
+        <input id="in-sitemap" type="text" placeholder="https://example.com/sitemap.xml" value="https://example.com/sitemap.xml" spellcheck="false">
+      </div>
+      <div class="codebox-wrap">
+        <button id="btn-copy-robots" class="copy-btn" type="button">Copy robots.txt</button>
+        <pre class="codebox" id="out-robots"></pre>
+      </div>
+      <p class="hint">Save it as <code>robots.txt</code> in the top folder of your site so it lives at <code>https://yourdomain.com/robots.txt</code>.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="fav-heading">
+      <h2 id="fav-heading">Icon forge <span class="mild">(favicons in every size)</span></h2>
+      <p class="hint">Drop in a square-ish logo and this carves out every size a real site needs — 16 and 32 pixel browser tabs, an 180 pixel phone icon, 192 and 512 for installable apps — plus a bundled <code>favicon.ico</code>. No image? It can mint a simple letter badge instead.</p>
+      <div class="forge-row">
+        <label class="file-btn">Choose an image<input type="file" id="fav-file" accept="image/*" hidden></label>
+        <span class="mild">or</span>
+        <span class="letter-row">
+          <span class="mild">letter</span>
+          <input id="fav-letter" type="text" maxlength="3" value="MTF" spellcheck="false" autocomplete="off">
+          <input id="fav-bg" type="color" value="#7a4f9e" aria-label="Letter badge background color">
+          <span class="mild">background</span>
+        </span>
+        <button id="btn-forge" class="primary" type="button">Forge icons</button>
+      </div>
+      <div id="fav-strip" class="fav-strip" aria-live="polite"></div>
+      <p id="fav-status" class="hint" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Meta Tag Forge — a local-first companion to the author-site-starter-template. Built by <strong>Asdale Dynamics, LLC</strong> for beginner-friendly, plain-English web publishing.</p>
+      <p><a href="https://dylanasdale.github.io">dylanasdale.github.io</a> · MIT licensed · nothing here ever leaves your computer.</p>
+    </div>
+  </footer>
+
+  <script src="js/tags.js"></script>
+  <script src="js/favicon.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

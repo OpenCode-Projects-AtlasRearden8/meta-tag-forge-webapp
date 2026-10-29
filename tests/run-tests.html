@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Tag Forge — tests</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #faf6f0; color: #2e2a33; margin: 0; padding: 30px; }
+    h1 { color: #7a4f9e; font-size: 1.3rem; }
+    .summary { padding: 10px 14px; border-radius: 9px; font-weight: 600; margin: 14px 0; }
+    .summary.ok { background: #e9f4ee; color: #235c3f; }
+    .summary.fail { background: #fdf3e2; color: #7a5518; }
+    ul#results { list-style: none; padding: 0; font-size: 0.85rem; }
+    li { padding: 4px 8px; }
+    li.ok { color: #235c3f; }
+    li.fail { color: #9c2b1f; background: #fdf0ee; border-radius: 6px; white-space: pre-wrap; }
+    .note { color: #7a7381; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <h1>Meta Tag Forge — offline test runner</h1>
+  <p class="note">Same pure functions the app uses. Runs straight from <code>file://</code>, no server needed.</p>
+  <div class="summary" id="summary">running…</div>
+  <ul id="results"></ul>
+  <script src="../js/tags.js"></script>
+  <script src="../js/favicon.js"></script>
+  <script src="browser-tests.js"></script>
+</body>
+</html>

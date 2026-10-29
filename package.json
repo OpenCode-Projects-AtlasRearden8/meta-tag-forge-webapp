@@ -1,0 +1,11 @@
+{
+  "name": "meta-tag-forge-webapp",
+  "version": "1.0.0",
+  "description": "Offline single-page tool that forges the invisible tags a new site needs: title/description search-snippet previews, Open Graph and Twitter cards, favicons in every size, robots guidance, and copy-paste HTML — all generated in the browser, no network.",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run-tests.mjs && node tests/smoke-app.mjs"
+  },
+  "license": "MIT",
+  "author": "Asdale Dynamics, LLC"
+}
